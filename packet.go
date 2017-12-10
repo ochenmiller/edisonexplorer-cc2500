@@ -41,7 +41,7 @@ func unmarshalPacket(t time.Time, n int, data []byte, rssi int) *Packet {
 		Raw:           unmarshalReading(data[11:13]),
 		Filtered:      2 * unmarshalReading(data[13:15]),
 		Battery:       data[15],
-		Sequence:      data[10],
+		Sequence:      data[10]>>2,
 		RSSI:          rssi,
 	}
 }
